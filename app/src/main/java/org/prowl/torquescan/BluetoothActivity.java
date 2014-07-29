@@ -193,15 +193,20 @@ public class BluetoothActivity extends Activity {
                             e.printStackTrace();
                         }
 
-                        // for now just send RPM
-                        Float f = vals[0];
+                        // TODO: compute gear position
+                        float gear = 0;
 
-                        String msg = String.format("%4.0f", f);
+                        // convert to MPH from KPH
+
+                        vals[1] = vals[1]/1.61f;
+
+                        // create and send the BT message
+
+                        String msg = String.format("%02.0f\t%03.0f\t%02.0f\t%1.0f", vals[0]/100, vals[1], vals[2], gear);
+                        final int len = 11;  // TODO: This needs to be updated here and in the HUD client whenever msg changes
                         byte[] buf = msg.getBytes();
 
-                        mOutStream.write(buf, 0, buf.length);
-
-                        //Log.d(TAG, buf.length + ": " + msg);
+                        mOutStream.write(buf, 0, len);
 
                         try {
                             Thread.sleep(100);
