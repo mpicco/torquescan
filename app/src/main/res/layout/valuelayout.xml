@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    
+    android:padding="6dip">
+    
+    <ImageView
+        android:id="@+id/aicon"
+        
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="6dip"
+        
+         />
+<LinearLayout android:orientation="vertical" android:layout_toLeftOf="@+id/aicon" android:id="@+id/aLinearLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent">
+<TextView android:layout_height="wrap_content" android:text="@+id/afirstLine" android:layout_width="fill_parent" android:id="@+id/afirstLine" android:textSize="16dip" android:textColor="#ffffff"></TextView>
+<TextView android:layout_height="wrap_content"  android:text="@+id/asecondLine" android:layout_width="fill_parent" android:id="@+id/asecondLine"></TextView>
+<TextView android:layout_height="wrap_content" android:text="@+id/athirdLine" android:layout_width="fill_parent" android:id="@+id/athirdLine" android:textColor="#00c4ff"></TextView>
+</LinearLayout>
+
+</RelativeLayout>

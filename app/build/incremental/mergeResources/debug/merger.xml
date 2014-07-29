@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res" >
+            <file
+                name="background"
+                path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res/drawable/background.jpg"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res/drawable/icon.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res/drawable-hdpi/icon.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res/drawable-ldpi/icon.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res/drawable-mdpi/icon.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="main"
+                path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res/layout/main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="valuelayout"
+                path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res/layout/valuelayout.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                path="/Users/mpicco/Development/Glass/torquescan/app/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="hello" >Hello World, TorqueScan!
+                </string>
+                <string name="app_name" >Torque Scan
+                </string>
+            </file>
+        </source>
+        <source path="/Users/mpicco/Development/Glass/torquescan/app/build/res/rs/debug" />
+        <source path="/Users/mpicco/Development/Glass/torquescan/app/build/res/generated/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/mpicco/Development/Glass/torquescan/app/src/debug/res" />
+    </dataSet>
+
+</merger>
