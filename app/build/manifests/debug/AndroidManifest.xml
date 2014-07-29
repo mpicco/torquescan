@@ -1,16 +1,23 @@
-<!-- From: file:/Users/mpicco/Development/Glass/torquescan/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="11" android:versionName="1.6" package="org.prowl.torquescan">
+<!-- From: file:/Users/mpicco/Development/Glass/torquescan/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="20" android:versionName="2.0" package="org.prowl.torquescan">
+
     <uses-permission android:name="android.permission.INTERNET"/>
-	<application android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name">
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+	<application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/AppTheme">
+
 		<activity android:alwaysRetainTaskState="true" android:clearTaskOnLaunch="true" android:exported="true" android:finishOnTaskLaunch="false" android:label="@string/app_name" android:name="org.prowl.torquescan.PluginActivity">
 			<intent-filter>
 				<action android:name="org.prowl.torque.ACTIVITY_PLUGIN"/>
-			</intent-filter>
+            </intent-filter>
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-<activity android:allowTaskReparenting="false" android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|orientation" android:launchMode="singleTop" android:name="org.prowl.torquescan.ScanActivity" android:noHistory="false"/>
-<activity android:allowTaskReparenting="false" android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|orientation" android:launchMode="singleTop" android:name="org.prowl.torquescan.TelnetActivity" android:noHistory="false"/>
+        <activity android:allowTaskReparenting="false" android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|orientation" android:launchMode="singleTop" android:name="org.prowl.torquescan.ScanActivity" android:noHistory="false"/>
+        <activity android:allowTaskReparenting="false" android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|orientation" android:launchMode="singleTop" android:name="org.prowl.torquescan.TelnetActivity" android:noHistory="false"/>
+        <activity android:allowTaskReparenting="false" android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|orientation" android:launchMode="singleTop" android:name="org.prowl.torquescan.BluetoothActivity" android:noHistory="false"/>
 
 	</application>
 	<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="5"/>
