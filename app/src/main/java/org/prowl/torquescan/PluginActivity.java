@@ -1,16 +1,5 @@
 package org.prowl.torquescan;
 
-import java.text.NumberFormat;
-import java.util.Collections;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.Vector;
-
-import org.prowl.torque.remote.ITorqueService;
-import org.prowl.torquescan.utils.PID;
-import org.prowl.torquescan.utils.PIDAdapter;
-import org.prowl.torquescan.utils.PIDComparator;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -37,6 +26,17 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.prowl.torque.remote.ITorqueService;
+import org.prowl.torquescan.utils.PID;
+import org.prowl.torquescan.utils.PIDAdapter;
+import org.prowl.torquescan.utils.PIDComparator;
+
+import java.text.NumberFormat;
+import java.util.Collections;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Vector;
 
 /**
  * This is a very rough, sample plugin that displays a list of all the currently available
@@ -73,6 +73,7 @@ public class PluginActivity extends Activity {
    private static PluginActivity instance;
    private static final String SCAN = "PID Scanner";
    private static final String TELNET = "Telnet Server";
+   private static final String BTS = "Bluetooth Server";
 
    @Override
    public void onCreate(Bundle savedInstanceState) {
@@ -268,36 +269,38 @@ public class PluginActivity extends Activity {
    }
 
 
-   public boolean onMenuItemSelected(int featureId, MenuItem item) {
-      if (SCAN.equals(item.getTitle())) {
-         startActivity(new Intent(this, ScanActivity.class));  
-      } else if (TELNET.equals(item.getTitle())) { 
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        if (SCAN.equals(item.getTitle())) {
+            startActivity(new Intent(this, ScanActivity.class));
+        } else if (BTS.equals(item.getTitle())) {
+            startActivity(new Intent(this, BluetoothActivity.class));
+        } else if (TELNET.equals(item.getTitle())) {
 
 
-         AlertDialog bdialog = new AlertDialog.Builder(PluginActivity.this).create();
-         bdialog.setTitle("Obligatory Warning");
-         bdialog.setMessage("The telnet utility is only for people who are proficient and understand the OBD2 protocol.\n\nYou will need a desktop computer with IP access to your phone to use this activity.\n\nBy pressing 'OK' you agree to not hold the author liable any possible damage through use of the telnet utility.\n");
-         bdialog.setButton("OK",new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface bdialog, int which) {
-               startActivity(new Intent(PluginActivity.this, TelnetActivity.class));  
-               bdialog.dismiss();
-            }});
-         bdialog.setButton2("Cancel",new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface bdialog, int which) {
-               bdialog.dismiss();
-            }});
-         bdialog.show();
+            AlertDialog bdialog = new AlertDialog.Builder(PluginActivity.this).create();
+            bdialog.setTitle("Obligatory Warning");
+            bdialog.setMessage("The telnet utility is only for people who are proficient and understand the OBD2 protocol.\n\nYou will need a desktop computer with IP access to your phone to use this activity.\n\nBy pressing 'OK' you agree to not hold the author liable any possible damage through use of the telnet utility.\n");
+            bdialog.setButton("OK",new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface bdialog, int which) {
+                    startActivity(new Intent(PluginActivity.this, TelnetActivity.class));
+                    bdialog.dismiss();
+                }});
+            bdialog.setButton2("Cancel",new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface bdialog, int which) {
+                    bdialog.dismiss();
+                }});
+            bdialog.show();
 
-      }
-      return true;
-   }
+        }
+        return true;
+    }
 
 
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
       menu.add(SCAN).setIcon(android.R.drawable.ic_menu_search);
       menu.add(TELNET).setIcon(android.R.drawable.ic_menu_upload);
-
+      menu.add(BTS).setIcon(android.R.drawable.ic_menu_compass);
       return true;
    }
 

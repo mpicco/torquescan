@@ -1,8 +1,7 @@
 apply plugin: 'android'
-
 android {
-    compileSdkVersion 8
-    buildToolsVersion "19.0.3"
+    compileSdkVersion 19
+    buildToolsVersion '19.0.3'
 
     defaultConfig {
         minSdkVersion 5
@@ -15,4 +14,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+}
+
+dependencies {
 }
